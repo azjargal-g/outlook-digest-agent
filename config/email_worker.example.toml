@@ -1,0 +1,30 @@
+# Copy to config/email_worker.toml (git-ignored) and edit.
+# List your folder names with: uv run tests/outlook_browser/extract_emails.py folders
+
+# Folders to summarize every run ("Parent/Child" for subfolders). Each run covers mail that arrived
+# since the last successful run.
+folders = ["Inbox"]
+
+# Privacy: emails whose sender, subject or preview contains any of these words/phrases (whole word,
+# case-insensitive) are never opened and never sent to the model. Add your bank, doctor, payroll provider,
+# etc. The pipeline's own "[Inbox digest]" emails are always skipped.
+exclude = [
+    "tax", "IRS", "SSN", "social security",
+    "bank", "account statement", "payroll", "invoice", "financial aid",
+    "medical", "health record", "prescription", "insurance claim",
+    "passport", "visa",
+    "password", "verification code", "security code", "one-time code",
+]
+
+# How far back the very first run looks.
+first_run_lookback_hours = 24
+
+[schedule]
+# Daily run time (24h). Re-run scripts/install_schedule.ps1 after changing it. The task also fires at logon,
+# on wake and hourly after this time; it only does work once per day, at or after this time.
+daily_at = "09:00"
+
+# After the batch, the manager agent ranks new summaries against config/preferences.md.
+[digest]
+windows_notification = true
+email_to_self = true   # always sent from and to the signed-in account only

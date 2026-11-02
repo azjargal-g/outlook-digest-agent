@@ -1,0 +1,18 @@
+# Secrets and personal configuration
+.env
+config/email_worker.toml
+config/preferences.md
+
+# Local state: browser session (= your logged-in mailbox!), database, outputs
+.cache/
+data/
+reports/
+logs/
+
+# Private working notes
+PROJECT.md
+
+# Python
+.venv/
+__pycache__/
+*.pyc

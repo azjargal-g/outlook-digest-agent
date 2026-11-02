@@ -1,0 +1,19 @@
+[project]
+name = "outlook-digest-agent"
+version = "0.1.0"
+description = "Daily AI digest of your Outlook mail: a worker agent summarizes each email, a manager agent ranks them against your preferences."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.13"
+dependencies = [
+    "anthropic>=1.15.0",
+    "playwright>=1.64.0",
+    "python-dotenv>=1.2.4",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/swarm"]
