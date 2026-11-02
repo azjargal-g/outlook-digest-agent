@@ -45,7 +45,7 @@ Outlook on the web ──(Playwright, your session)──▶ worker agent ──
 ## Setup
 
 ```powershell
-git clone https://github.com/<you>/outlook-digest-agent
+git clone https://github.com/azjargal-g/outlook-digest-agent
 cd outlook-digest-agent
 uv sync
 uv run playwright install chromium
